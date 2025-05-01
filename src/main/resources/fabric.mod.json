@@ -21,13 +21,18 @@
 		"fabric-datagen": [
 			"com.heart.mod.HeartModDataGenerator"
 		],
-		"client":[
-		"com.heart.mod.client.HeartModClient"
-			]
+		"client": [
+			"com.heart.mod.client.HeartModClient"
+		]
 	},
 	"mixins": [
 		"heart-mod.mixins.json"
 	],
+	"client": {
+		"mixins": [
+			"heart-mod.client.mixins.json"
+		]
+	},
 	"depends": {
 		"fabricloader": ">=0.16.14",
 		"minecraft": "~1.21",
