@@ -12,9 +12,12 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 
 import java.util.Objects;
 
+@Environment(EnvType.CLIENT)
 @Mixin(InGameHud.class)
 public class InGameHudMixin {
 

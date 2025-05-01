@@ -3,7 +3,6 @@
 	"package": "com.heart.mod.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
-		"InGameHudMixin",
 		"PlayerEntityMixin",
 		"ExampleMixin"
 	],
