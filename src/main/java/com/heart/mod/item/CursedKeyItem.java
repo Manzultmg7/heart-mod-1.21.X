@@ -4,6 +4,9 @@ import com.heart.mod.access.PlayerHeartData;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.particle.EntityEffectParticleEffect;
+import net.minecraft.particle.ParticleType;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
@@ -36,7 +39,8 @@ public class CursedKeyItem extends Item {
             // Effects
             world.playSound(null, player.getBlockPos(), SoundEvents.ENTITY_WITHER_HURT, player.getSoundCategory(), 1.0F, 1.0F);
             if (world instanceof ServerWorld serverWorld) {
-                serverWorld.spawnParticles(net.minecraft.particle.ParticleTypes.SMOKE, player.getX(), player.getY() + 1.0, player.getZ(), 6, 0.5, 0.5, 0.5, 0.01);
+
+                serverWorld.spawnParticles(ParticleTypes.WITCH, player.getX(), player.getY() + 1.0, player.getZ(), 6, 0.5, 0.5, 0.5, 0.01);
             }
           //only use in multiplayer && player.getServer().getPlayerManager().getPlayerList().size() > 1
             // Multiplayer message
