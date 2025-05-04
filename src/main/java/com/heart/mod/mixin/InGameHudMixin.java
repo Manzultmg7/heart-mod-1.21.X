@@ -1,7 +1,9 @@
 package com.heart.mod.mixin;
 
+import com.heart.mod.HeartMod;
 import com.mojang.blaze3d.systems.RenderSystem;
-import net.minecraft.client.MinecraftClient;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.hud.InGameHud;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -15,6 +17,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.Objects;
 
+@Environment(EnvType.CLIENT)
 @Mixin(InGameHud.class)
 public class InGameHudMixin {
 
@@ -23,9 +26,11 @@ public class InGameHudMixin {
 
     @Inject(method = "renderHealthBar", at = @At("TAIL"))
     private void renderLockedHearts(DrawContext context, PlayerEntity player, int x, int y, int lines, int regeneratingHeartIndex, float maxHealth, int lastHealth, int health, int absorption, boolean blinking, CallbackInfo ci) {
-        MinecraftClient client = MinecraftClient.getInstance();
         int totalHearts = 10; // 10 hearts = 20 health
         int activeHearts = (int) (Objects.requireNonNull(player.getAttributeInstance(EntityAttributes.GENERIC_MAX_HEALTH)).getValue() / 2);
+
+
+//        HeartMod.LOGGER.info("Rendering locked hearts: activeHearts={}", activeHearts);
 
         RenderSystem.setShaderTexture(0, LOCKED_HEART_TEXTURE);
         RenderSystem.enableBlend();

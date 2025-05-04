@@ -3,9 +3,11 @@
 	"package": "com.heart.mod.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
-		"InGameHudMixin",
 		"PlayerEntityMixin",
 		"ExampleMixin"
+	],
+	"client": [
+		"InGameHudMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
